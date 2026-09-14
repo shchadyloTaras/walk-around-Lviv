@@ -24,8 +24,11 @@ const IMG   = (slug, alt, tape) =>
 const PIN = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="pin-i">
   <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z" stroke="currentColor" stroke-width="2"/>
   <circle cx="12" cy="10" r="2.4" fill="currentColor"/></svg>`;
-const ADDR = a => `<a class="addr" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.includes('Львів') ? a : a + ', Львів')}"
+const ADDR = (a, geo) => {
+  const q = geo || a;
+  return `<a class="addr" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q.includes('Львів') ? q : q + ', Львів')}"
    target="_blank" rel="noopener" title="Відкрити на карті">${PIN}${esc(a)}<span class="addr-go">↗</span></a>`;
+};
 
 /* ─────────── Мапа маршруту (мальована) ─────────── */
 const ROUTE_SVG = `
@@ -105,7 +108,7 @@ function render(s, i) {
   return `
     ${open('stop')}
       ${media}
-      ${ADDR(s.addr)}
+      ${ADDR(s.addr, s.geo)}
       <h2 class="title">${esc(s.title)}</h2>
       ${s.meta ? `<p class="meta">${esc(s.meta)}</p>` : ''}
       <p class="body">${esc(s.text)}</p>
