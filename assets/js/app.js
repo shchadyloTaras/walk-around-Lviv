@@ -15,6 +15,12 @@ const IMG   = (slug, alt, tape) =>
      <img src="assets/img/${slug}.jpg" alt="${esc(alt)}" loading="lazy" decoding="async">
    </figure>`;
 
+const PIN = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="pin-i">
+  <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z" stroke="currentColor" stroke-width="2"/>
+  <circle cx="12" cy="10" r="2.4" fill="currentColor"/></svg>`;
+const ADDR = a => `<a class="addr" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.includes('Львів') ? a : a + ', Львів')}"
+   target="_blank" rel="noopener" title="Відкрити на карті">${PIN}${esc(a)}<span class="addr-go">↗</span></a>`;
+
 /* ─────────── Мапа маршруту (мальована) ─────────── */
 const ROUTE_SVG = `
 <svg viewBox="0 0 340 154" role="img" aria-label="Схема маршруту: Чупринки, Мельника, Коновальця, Піскові озера">
@@ -93,7 +99,7 @@ function render(s, i) {
   return `
     ${open('stop')}
       ${media}
-      <span class="addr">${esc(s.addr)}</span>
+      ${ADDR(s.addr)}
       <h2 class="title">${esc(s.title)}</h2>
       ${s.meta ? `<p class="meta">${esc(s.meta)}</p>` : ''}
       <p class="body">${esc(s.text)}</p>
@@ -139,7 +145,7 @@ function paint(i) {
 }
 
 /* ─────────── Спостерігач ─────────── */
-let current = 0;
+let current = 0, target = 0;
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
@@ -163,6 +169,7 @@ deck.addEventListener('scroll', () => {
       sl.classList.add('seen');
       const i = +sl.dataset.i;
       if (i !== current) { current = i; paint(i); }
+      target = current;                      // швидкі натискання стрілок додаються
     }
   }, 120);
 }, { passive: true });
@@ -183,7 +190,8 @@ sheetBody.innerHTML = CHAPTERS.map((c, ci) => {
   </div>`;
 }).join('');
 
-const goto = i => { slides[i].scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+const goto = i => { target = i; slides[i].scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+const step = d => goto(Math.max(0, Math.min(slides.length - 1, target + d)));
 const openSheet = on => {
   sheet.classList.toggle('on', on); scrim.classList.toggle('on', on);
   sheet.setAttribute('aria-hidden', String(!on));
@@ -205,8 +213,8 @@ deck.addEventListener('click', e => {
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') return openSheet(false);
-  if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); goto(Math.min(current + 1, slides.length - 1)); }
-  if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); goto(Math.max(current - 1, 0)); }
+  if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); step(1); }
+  if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); step(-1); }
 });
 
 /* ─────────── Падаюче листя ─────────── */
@@ -226,7 +234,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       d.className = 'leaf';
       const size = rnd(15, 31);
       d.style.cssText = `left:${rnd(-4, 100)}%;--drift:${rnd(-90, 110)}px;
-        animation-duration:${rnd(13, 26)}s;animation-delay:${-rnd(0, 26)}s;opacity:${rnd(.4, .8)}`;
+        animation-duration:${rnd(13, 26)}s;animation-delay:${-rnd(0, 26)}s;opacity:${rnd(.16, .36)}`;
       d.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" style="animation-duration:${rnd(2.4, 5.5)}s">
         <path d="${LEAF_SHAPES[i % LEAF_SHAPES.length]}" fill="${LEAF_COLORS[i % LEAF_COLORS.length]}"/></svg>`;
       box.appendChild(d);
