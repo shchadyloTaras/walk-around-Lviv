@@ -1,15 +1,15 @@
 const CREDITS = [
  {
-  "t": "National Forestry University of Ukraine Botanic Garden (1).JPG",
+  "t": "National Forestry University of Ukraine Botanic Garden (3).JPG",
   "a": "MSha",
   "l": "CC BY-SA 3.0",
-  "u": "https://commons.wikimedia.org/wiki/File:National_Forestry_University_of_Ukraine_Botanic_Garden_(1).JPG"
+  "u": "https://commons.wikimedia.org/wiki/File:National_Forestry_University_of_Ukraine_Botanic_Garden_(3).JPG"
  },
  {
-  "t": "National Forestry University of Ukraine Botanic Garden (5).JPG",
+  "t": "National Forestry University of Ukraine Botanic Garden (6).JPG",
   "a": "MSha",
   "l": "CC BY-SA 3.0",
-  "u": "https://commons.wikimedia.org/wiki/File:National_Forestry_University_of_Ukraine_Botanic_Garden_(5).JPG"
+  "u": "https://commons.wikimedia.org/wiki/File:National_Forestry_University_of_Ukraine_Botanic_Garden_(6).JPG"
  },
  {
   "t": "Львів, вул. Генерала Тараса Чупринки, 1. Школа.jpg",
@@ -18,22 +18,28 @@ const CREDITS = [
   "u": "https://commons.wikimedia.org/wiki/File:%D0%9B%D1%8C%D0%B2%D1%96%D0%B2,_%D0%B2%D1%83%D0%BB._%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D0%B0_%D0%A2%D0%B0%D1%80%D0%B0%D1%81%D0%B0_%D0%A7%D1%83%D0%BF%D1%80%D0%B8%D0%BD%D0%BA%D0%B8,_1._%D0%A8%D0%BA%D0%BE%D0%BB%D0%B0.jpg"
  },
  {
-  "t": "103 Chuprynky Street, Lviv (01).jpg",
-  "a": "Aeou",
-  "l": "CC BY-SA 4.0",
-  "u": "https://commons.wikimedia.org/wiki/File:103_Chuprynky_Street,_Lviv_(01).jpg"
+  "t": "Lviv, Chuprynky street 103 (3).JPG",
+  "a": "Eleidan",
+  "l": "CC BY-SA 3.0",
+  "u": "https://commons.wikimedia.org/wiki/File:Lviv,_Chuprynky_street_103_(3).JPG"
  },
  {
-  "t": "14 Chuprynky Street, Lviv (01).jpg",
-  "a": "Aeou",
+  "t": "WLM2017foto1415.jpg",
+  "a": "AndriiDydiuk",
   "l": "CC BY-SA 4.0",
-  "u": "https://commons.wikimedia.org/wiki/File:14_Chuprynky_Street,_Lviv_(01).jpg"
+  "u": "https://commons.wikimedia.org/wiki/File:WLM2017foto1415.jpg"
  },
  {
-  "t": "49 Chuprynky Street, Lviv (01).jpg",
-  "a": "Aeou",
+  "t": "Львів, вул. Генерала Тараса Чупринки, 14.jpg",
+  "a": "Shev.vl.vas",
   "l": "CC BY-SA 4.0",
-  "u": "https://commons.wikimedia.org/wiki/File:49_Chuprynky_Street,_Lviv_(01).jpg"
+  "u": "https://commons.wikimedia.org/wiki/File:%D0%9B%D1%8C%D0%B2%D1%96%D0%B2,_%D0%B2%D1%83%D0%BB._%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D0%B0_%D0%A2%D0%B0%D1%80%D0%B0%D1%81%D0%B0_%D0%A7%D1%83%D0%BF%D1%80%D0%B8%D0%BD%D0%BA%D0%B8,_14.jpg"
+ },
+ {
+  "t": "46-101-1917 Lviv Chuprinki 49 002.jpg",
+  "a": "Wadco2",
+  "l": "CC BY-SA 4.0",
+  "u": "https://commons.wikimedia.org/wiki/File:46-101-1917_Lviv_Chuprinki_49_002.jpg"
  },
  {
   "t": "61 Chuprynky Street, Lviv.jpg",
@@ -72,12 +78,6 @@ const CREDITS = [
   "u": "https://commons.wikimedia.org/wiki/File:%D0%A2%D1%80%D0%B0%D0%BC%D0%B2%D0%B0%D0%B9_%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D0%B0_%D0%A7%D1%83%D0%BF%D1%80%D0%B8%D0%BD%D0%BA%D0%B8.jpg"
  },
  {
-  "t": "Chuprynky street Lviv 2021.jpg",
-  "a": "Andrii2603",
-  "l": "CC BY-SA 4.0",
-  "u": "https://commons.wikimedia.org/wiki/File:Chuprynky_street_Lviv_2021.jpg"
- },
- {
   "t": "Kastelivka Street, Lviv (01).jpg",
   "a": "Aeou",
   "l": "CC BY-SA 3.0",
@@ -114,10 +114,16 @@ const CREDITS = [
   "u": "https://commons.wikimedia.org/wiki/File:%D0%A1%D1%82%D0%B0%D0%BB%D0%B8%D0%BD%D0%BA%D0%B0_%D0%A2%D0%B5%D0%BC%D0%BF.jpg"
  },
  {
-  "t": "88 Konovaltsia Street, Lviv (01).jpg",
-  "a": "Aeou",
+  "t": "46-101-0653 Lviv Konovalca 88 001.jpg",
+  "a": "Wadco2",
   "l": "CC BY-SA 4.0",
-  "u": "https://commons.wikimedia.org/wiki/File:88_Konovaltsia_Street,_Lviv_(01).jpg"
+  "u": "https://commons.wikimedia.org/wiki/File:46-101-0653_Lviv_Konovalca_88_001.jpg"
+ },
+ {
+  "t": "46-101-0653 Lviv Konovalca 88 003.jpg",
+  "a": "Wadco2",
+  "l": "CC BY-SA 4.0",
+  "u": "https://commons.wikimedia.org/wiki/File:46-101-0653_Lviv_Konovalca_88_003.jpg"
  },
  {
   "t": "На Байках 1.jpg",
@@ -180,6 +186,12 @@ const CREDITS = [
   "u": "https://commons.wikimedia.org/wiki/File:Piskovi_Ozera_(Park)_(3).jpg"
  },
  {
+  "t": "Школа17Львов.jpg",
+  "a": "Водник",
+  "l": "CC BY-SA 2.5",
+  "u": "https://commons.wikimedia.org/wiki/File:%D0%A8%D0%BA%D0%BE%D0%BB%D0%B017%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2.jpg"
+ },
+ {
   "t": "1-3 Melnyka Street, Lviv (01).jpg",
   "a": "Aeou",
   "l": "CC BY 3.0",
@@ -214,6 +226,18 @@ const CREDITS = [
   "a": "Koshelyev",
   "l": "CC BY-SA 3.0",
   "u": "https://commons.wikimedia.org/wiki/File:NLTU_in_Lviv_-_sklyanyi_korpus.jpg"
+ },
+ {
+  "t": "50-52 Chuprynky Street, Lviv (01).jpg",
+  "a": "Akcfif",
+  "l": "CC BY-SA 3.0",
+  "u": "https://commons.wikimedia.org/wiki/File:50-52_Chuprynky_Street,_Lviv_(01).jpg"
+ },
+ {
+  "t": "Lviv 50-52 Chuprynky Street33983404.jpg",
+  "a": "Дмитрий Ванькевич",
+  "l": "CC BY-SA 3.0",
+  "u": "https://commons.wikimedia.org/wiki/File:Lviv_50-52_Chuprynky_Street33983404.jpg"
  },
  {
   "t": "Ivan Trush street 28, Lviv (Memorial Museum of Ivan Trush).jpg",

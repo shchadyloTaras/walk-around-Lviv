@@ -225,7 +225,8 @@ body{
   background:linear-gradient(200deg, rgba(246,196,69,.20), rgba(230,129,47,.06) 45%, rgba(47,138,166,.10));
   mix-blend-mode:soft-light;
 }
-.frame.wide{ aspect-ratio:21/9; margin-bottom:18px; }
+.frame.wide{ aspect-ratio:16/10; margin-bottom:var(--gap-block); }
+.frame.wide img{ object-position:50% 34%; }
 .frame{ cursor:zoom-in; }
 .frame .zoom{
   position:absolute; right:10px; bottom:10px; z-index:3;

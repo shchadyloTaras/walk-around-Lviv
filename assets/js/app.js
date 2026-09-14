@@ -51,7 +51,7 @@ function render(s, i) {
 
   if (s.type === 'intro') return `
     ${open('intro')}
-      <figure class="frame wide"><span class="tape"></span><img src="assets/img/hero-chuprynky.jpg" alt="Вулиця Генерала Чупринки у Львові" decoding="async"></figure>
+      <figure class="frame wide"><span class="tape"></span><img src="assets/img/sosnowski.jpg" alt="Палац Сосновського на вулиці Генерала Чупринки, 50/52" decoding="async"></figure>
       <p class="intro-eyebrow">Львів · осіння прогулянка</p>
       <h1 class="big">Львів, який <em>шарудить</em> під ногами</h1>
       <p class="intro-sub">Від сецесійних вілл Кастелівки — бруківкою, повз маскарони й меморіальні таблиці — до двох озер, які колись були гіпсовим кар’єром.</p>
@@ -143,7 +143,7 @@ function paint(i) {
     el.style.setProperty('--p', k < ch ? '100%' : k > ch ? '0%' : Math.round(within / chCounts[ch] * 100) + '%');
   });
 
-  if (s.type === 'intro')      { hKick.textContent = 'прогулянка';  hTitle.textContent = 'Львів, який шарудить під ногами'; }
+  if (s.type === 'intro')      { hKick.textContent = 'прогулянка';  hTitle.textContent = 'Осіння прогулянка Львовом'; }
   else if (s.type === 'outro') { hKick.textContent = 'фінал';       hTitle.textContent = 'Дякуємо за прогулянку'; }
   else                         { hKick.textContent = CHAPTERS[ch].kicker; hTitle.textContent = CHAPTERS[ch].name; }
 
