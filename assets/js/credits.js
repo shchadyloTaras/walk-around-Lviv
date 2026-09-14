@@ -66,22 +66,10 @@ const CREDITS = [
   "u": "https://commons.wikimedia.org/wiki/File:96_Chuprynky_Street,_Lviv_(01).jpg"
  },
  {
-  "t": "Chuprynky Street, Lviv (2).jpg",
-  "a": "Aeou",
-  "l": "CC BY-SA 3.0",
-  "u": "https://commons.wikimedia.org/wiki/File:Chuprynky_Street,_Lviv_(2).jpg"
- },
- {
   "t": "Трамвай Генерала Чупринки.jpg",
   "a": "The original uploader was Johnny at Ukrainian Wikipedia.",
   "l": "CC BY 2.5",
   "u": "https://commons.wikimedia.org/wiki/File:%D0%A2%D1%80%D0%B0%D0%BC%D0%B2%D0%B0%D0%B9_%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D0%B0_%D0%A7%D1%83%D0%BF%D1%80%D0%B8%D0%BD%D0%BA%D0%B8.jpg"
- },
- {
-  "t": "Kastelivka Street, Lviv (01).jpg",
-  "a": "Aeou",
-  "l": "CC BY-SA 3.0",
-  "u": "https://commons.wikimedia.org/wiki/File:Kastelivka_Street,_Lviv_(01).jpg"
  },
  {
   "t": "100 Konovaltsia Street, Lviv (04).jpg",
