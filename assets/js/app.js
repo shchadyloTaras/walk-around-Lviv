@@ -39,7 +39,7 @@ const ROUTE_SVG = `
   <g font-family="Unbounded, sans-serif" font-size="7.5" font-weight="700" fill="#6B4A31" text-anchor="middle">
     <circle cx="34"  cy="112" r="6.5" fill="#E5812F"/><text x="36"  y="134">ЧУПРИНКИ</text>
     <circle cx="122" cy="46"  r="6.5" fill="#C9931A"/><text x="122" y="28">МЕЛЬНИКА</text>
-    <circle cx="214" cy="92"  r="6.5" fill="#C6412A"/><text x="212" y="114">КОНОВАЛЬЦЯ</text>
+    <circle cx="214" cy="92"  r="6.5" fill="#B5604B"/><text x="212" y="114">КОНОВАЛЬЦЯ</text>
     <circle cx="306" cy="66"  r="8"   fill="#2F8AA6"/><text x="286" y="46">ПІСКОВІ ОЗЕРА</text>
   </g>
 </svg>`;
@@ -126,7 +126,7 @@ deck.querySelectorAll('.frame img').forEach(im => {
 });
 
 /* ─────────── Прогрес-гілка ─────────── */
-const TONE_HEX = { amber:'#E5812F', mustard:'#C9931A', maple:'#C6412A', water:'#2F8AA6' };
+const TONE_HEX = { amber:'#E5812F', mustard:'#C9931A', maple:'#B5604B', water:'#2F8AA6' };
 rail.innerHTML = CHAPTERS.map(c => `<span style="--seg:${TONE_HEX[c.tone]}"></span>`).join('');
 const segs = [...rail.children];
 
@@ -280,7 +280,7 @@ const LEAF_SHAPES = [
   'M12 2c6.5 3.2 8.6 8.6 6.2 13.6S9.6 22.8 5.4 19.4C1.4 16 4.6 5.6 12 2Z',
   'M3 21C3 12 9 3 21 3c0 10-8 18-18 18Z'
 ];
-const LEAF_COLORS = ['#E5812F', '#C6412A', '#D9A21B', '#B06A2C', '#E8A33F', '#8E9B44'];
+const LEAF_COLORS = ['#E5812F', '#B5604B', '#D9A21B', '#B06A2C', '#E8A33F', '#8E9B44'];
 
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const rnd = (a, b) => a + Math.random() * (b - a);

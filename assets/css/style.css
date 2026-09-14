@@ -17,7 +17,7 @@
   /* Осінь */
   --amber:      #E5812F;
   --mustard:    #D9A21B;
-  --maple:      #C6412A;
+  --maple:      #B5604B;   /* тепла теракота замість різкого цегляного */
   --water:      #2F8AA6;
   --moss:       #7E9448;
   --gold:       #F6C445;
@@ -48,7 +48,7 @@
 /* Тональності розділів */
 [data-tone="amber"]  { --accent:#E5812F; --accent-ink:#8A3F11; --accent-wash:#FCE4C8; }
 [data-tone="mustard"]{ --accent:#C9931A; --accent-ink:#7A560A; --accent-wash:#FBEBC3; }
-[data-tone="maple"]  { --accent:#C6412A; --accent-ink:#7E2414; --accent-wash:#FADCD2; }
+[data-tone="maple"]  { --accent:#B5604B; --accent-ink:#7E3626; --accent-wash:#F8E2D9; }
 [data-tone="water"]  { --accent:#2F8AA6; --accent-ink:#14556B; --accent-wash:#D7ECF2; }
 
 *,*::before,*::after{ box-sizing:border-box; }
