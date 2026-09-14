@@ -78,7 +78,7 @@ body{
 .leaf{
   position:absolute; top:-9vh; will-change:transform;
   animation:fall linear infinite;
-  opacity:.78;
+  opacity:.1;
 }
 .leaf svg{ display:block; animation:twirl ease-in-out infinite alternate; transform-origin:50% 50%; }
 @keyframes fall{

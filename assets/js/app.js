@@ -234,7 +234,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       d.className = 'leaf';
       const size = rnd(15, 31);
       d.style.cssText = `left:${rnd(-4, 100)}%;--drift:${rnd(-90, 110)}px;
-        animation-duration:${rnd(13, 26)}s;animation-delay:${-rnd(0, 26)}s;opacity:${rnd(.16, .36)}`;
+        animation-duration:${rnd(13, 26)}s;animation-delay:${-rnd(0, 26)}s;opacity:${rnd(.06, .15)}`;
       d.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" style="animation-duration:${rnd(2.4, 5.5)}s">
         <path d="${LEAF_SHAPES[i % LEAF_SHAPES.length]}" fill="${LEAF_COLORS[i % LEAF_COLORS.length]}"/></svg>`;
       box.appendChild(d);
