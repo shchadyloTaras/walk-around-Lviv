@@ -10,9 +10,15 @@ const hKick  = $('#headKicker'), hTitle = $('#headTitle'), hCount = $('#headCoun
 const sheet  = $('#sheet'), scrim = $('#scrim'), sheetBody = $('#sheetBody');
 
 const STOPS = SLIDES.filter(s => s.type === 'stop');
+const ZOOM = `<button class="zoom" aria-label="Збільшити фото" tabindex="-1">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+    <path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg></button>`;
 const IMG   = (slug, alt, tape) =>
   `<figure class="frame">${tape ? '<span class="tape"></span>' : ''}
      <img src="assets/img/${slug}.jpg" alt="${esc(alt)}" loading="lazy" decoding="async">
+     ${ZOOM}
    </figure>`;
 
 const PIN = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="pin-i">
@@ -212,10 +218,58 @@ deck.addEventListener('click', e => {
 });
 
 document.addEventListener('keydown', e => {
+  if (lbOpened()) {
+    if (e.key === 'Escape') lbClose();
+    if (e.key === 'ArrowRight') lbShow(lbAt + 1);
+    if (e.key === 'ArrowLeft')  lbShow(lbAt - 1);
+    if (['Escape', 'ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].includes(e.key)) e.preventDefault();
+    return;
+  }
   if (e.key === 'Escape') return openSheet(false);
   if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); step(1); }
   if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); step(-1); }
 });
+
+/* ─────────── Лайтбокс ─────────── */
+const lbox = $('#lbox'), lbImg = $('#lboxImg');
+let lbList = [], lbAt = 0;
+
+function lbShow(k) {
+  lbAt = (k + lbList.length) % lbList.length;
+  lbImg.src = lbList[lbAt];
+  $('#lboxCount').textContent = lbList.length > 1 ? `${lbAt + 1} / ${lbList.length}` : '';
+  lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
+}
+function lbOpen(fig) {
+  const slide = fig.closest('.slide');
+  lbList = [...slide.querySelectorAll('.frame img')].map(x => x.currentSrc || x.src);
+  lbox.classList.toggle('solo', lbList.length < 2);
+  $('#lboxTitle').textContent = slide.querySelector('.title, .outro-title')?.textContent || '';
+  $('#lboxAddr').textContent  = slide.querySelector('.addr')?.textContent.replace('↗', '').trim() || '';
+  lbImg.alt = fig.querySelector('img')?.alt || '';
+  lbShow(lbList.indexOf(fig.querySelector('img').currentSrc || fig.querySelector('img').src));
+  lbox.classList.add('on'); lbox.setAttribute('aria-hidden', 'false');
+  $('#lboxClose').focus();
+}
+const lbClose = () => { lbox.classList.remove('on'); lbox.setAttribute('aria-hidden', 'true'); };
+const lbOpened = () => lbox.classList.contains('on');
+
+deck.addEventListener('click', e => {
+  const fig = e.target.closest('.frame'); if (fig) lbOpen(fig);
+});
+$('#lboxClose').addEventListener('click', lbClose);
+$('#lboxPrev').addEventListener('click', () => lbShow(lbAt - 1));
+$('#lboxNext').addEventListener('click', () => lbShow(lbAt + 1));
+lbox.addEventListener('click', e => { if (e.target === lbox || e.target.classList.contains('lbox-stage')) lbClose(); });
+
+/* свайп у лайтбоксі */
+let swipeX = null;
+lbox.addEventListener('touchstart', e => { swipeX = e.touches[0].clientX; }, { passive: true });
+lbox.addEventListener('touchend', e => {
+  if (swipeX === null || lbList.length < 2) return;
+  const dx = e.changedTouches[0].clientX - swipeX; swipeX = null;
+  if (Math.abs(dx) > 48) lbShow(lbAt + (dx < 0 ? 1 : -1));
+}, { passive: true });
 
 /* ─────────── Падаюче листя ─────────── */
 const LEAF_SHAPES = [

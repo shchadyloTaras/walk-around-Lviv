@@ -47,6 +47,18 @@
 
   <div class="deck" id="deck" tabindex="-1"></div>
 
+  <div class="lbox" id="lbox" role="dialog" aria-modal="true" aria-label="Перегляд фото" aria-hidden="true">
+    <button class="lbox-x" id="lboxClose" aria-label="Закрити перегляд">✕</button>
+    <button class="lbox-arr prev" id="lboxPrev" aria-label="Попереднє фото">‹</button>
+    <figure class="lbox-stage"><img id="lboxImg" alt=""></figure>
+    <button class="lbox-arr next" id="lboxNext" aria-label="Наступне фото">›</button>
+    <div class="lbox-cap">
+      <b id="lboxTitle"></b>
+      <span id="lboxAddr"></span>
+      <em id="lboxCount"></em>
+    </div>
+  </div>
+
   <div class="scrim" id="scrim"></div>
   <nav class="sheet" id="sheet" aria-label="Маршрут прогулянки" aria-hidden="true">
     <div class="sheet-grab"></div>
