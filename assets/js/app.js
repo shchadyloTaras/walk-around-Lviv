@@ -101,8 +101,7 @@ function render(s, i) {
 
   /* звичайна зупинка */
   const media = s.gallery
-    ? `<div class="gal">${s.gallery.map(g => IMG(g, s.title)).join('')}</div>
-       <p class="gal-hint">← гортайте фото →</p>`
+    ? `<div class="gal">${s.gallery.map(g => IMG(g, s.title)).join('')}</div>`
     : IMG(s.img, s.title, true);
 
   return `

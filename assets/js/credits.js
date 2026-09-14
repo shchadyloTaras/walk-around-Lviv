@@ -84,6 +84,18 @@ const CREDITS = [
   "u": "https://commons.wikimedia.org/wiki/File:Kastelivka_Street,_Lviv_(01).jpg"
  },
  {
+  "t": "100 Konovaltsia Street, Lviv (04).jpg",
+  "a": "Aeou",
+  "l": "CC BY-SA 4.0",
+  "u": "https://commons.wikimedia.org/wiki/File:100_Konovaltsia_Street,_Lviv_(04).jpg"
+ },
+ {
+  "t": "46-101-0661 Lviv Konovalca 100 002.jpg",
+  "a": "Wadco2",
+  "l": "CC BY-SA 4.0",
+  "u": "https://commons.wikimedia.org/wiki/File:46-101-0661_Lviv_Konovalca_100_002.jpg"
+ },
+ {
   "t": "102 Konovaltsia Street, Lviv (1).jpg",
   "a": "Aeou",
   "l": "CC BY 3.0",
