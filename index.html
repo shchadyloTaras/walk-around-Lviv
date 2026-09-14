@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Львів, який шарудить під ногами · осіння прогулянка</title>
+<meta name="description" content="Мобільна екскурсія Львовом: вулиці Генерала Чупринки, Андрія Мельника, Євгена Коновальця і парк Піскові озера. Історії будинків, вілл і озер.">
+<meta name="theme-color" content="#FFF6E6">
+<meta property="og:title" content="Львів, який шарудить під ногами">
+<meta property="og:description" content="Осіння прогулянка: Чупринки → Мельника → Коновальця → Піскові озера">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/lake-2.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8D%81%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="backdrop" aria-hidden="true"></div>
+<div class="leaves" id="leaves" aria-hidden="true"></div>
+
+<main class="phone" data-tone="amber" id="phone">
+
+  <header class="head" id="head">
+    <button class="mark" id="mark" aria-label="На початок прогулянки">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 21c0-6 3-11 9-13-1 8-4 12-9 13Z" fill="currentColor" opacity=".85"/>
+        <path d="M12 21c0-5-2.5-9-8-10.5C5 17 8 20 12 21Z" fill="currentColor" opacity=".5"/>
+        <path d="M12 21v-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="head-txt">
+      <div class="head-kicker" id="headKicker">прогулянка</div>
+      <div class="head-title" id="headTitle">Львів, який шарудить під ногами</div>
+    </div>
+    <div class="head-count" id="headCount"></div>
+    <button class="menu-btn" id="menuBtn" aria-label="Відкрити маршрут" aria-expanded="false">
+      <i></i><i></i><i></i>
+    </button>
+  </header>
+
+  <div class="rail" id="rail" aria-hidden="true"></div>
+
+  <div class="deck" id="deck" tabindex="-1"></div>
+
+  <div class="scrim" id="scrim"></div>
+  <nav class="sheet" id="sheet" aria-label="Маршрут прогулянки" aria-hidden="true">
+    <div class="sheet-grab"></div>
+    <div class="sheet-head">Маршрут<span>Торкніться зупинки, щоб перейти до неї</span></div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </nav>
+
+</main>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/credits.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
