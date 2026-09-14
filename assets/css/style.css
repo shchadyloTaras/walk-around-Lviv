@@ -351,13 +351,15 @@ body{
 }
 
 /* галерея */
-/* Галерея — сітка, а не горизонтальний скрол:
-   вкладений скролер перехоплював вертикальний жест на фото */
-.gal{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:9px 0 var(--gap-block); }
-.gal .frame{ margin:0; aspect-ratio:1; }
-.gal .frame:first-child:nth-last-child(odd){ grid-column:1 / -1; aspect-ratio:4/3; }
-.gal .zoom{ width:28px; height:28px; border-radius:10px; right:8px; bottom:8px; }
-.gal .zoom svg{ width:14px; height:14px; }
+/* Головне фото + мініатюри деталей.
+   Вкладений горизонтальний скролер тут був би пасткою для жесту,
+   а рівні квадрати різали будівлю навпіл. */
+.shots{ margin:9px 0 var(--gap-block); }
+.shots > .frame{ margin:0; }
+.thumbs{ display:flex; gap:8px; margin-top:8px; }
+.thumbs .frame{ margin:0; flex:0 0 70px; aspect-ratio:1; border-radius:var(--radius-sm); }
+.thumbs .zoom{ width:24px; height:24px; right:5px; bottom:5px; border-radius:8px; }
+.thumbs .zoom svg{ width:12px; height:12px; }
 
 /* ───────── Текстові блоки ───────── */
 .addr{

@@ -104,7 +104,10 @@ function render(s, i) {
 
   /* звичайна зупинка */
   const media = s.gallery
-    ? `<div class="gal">${s.gallery.map(g => IMG(g, s.title)).join('')}</div>`
+    ? `<div class="shots">
+         ${IMG(s.gallery[0], s.title, true)}
+         <div class="thumbs">${s.gallery.slice(1).map(g => IMG(g, s.title)).join('')}</div>
+       </div>`
     : IMG(s.img, s.title, true);
 
   return `
