@@ -298,9 +298,13 @@ body{
 }
 
 /* галерея */
-.gal{ display:flex; gap:9px; overflow-x:auto; scroll-snap-type:x mandatory; margin:0 0 var(--gap-block); padding-bottom:4px; scrollbar-width:none; }
-.gal::-webkit-scrollbar{ display:none; }
-.gal .frame{ flex:0 0 86%; margin:9px 0 0; scroll-snap-align:center; }
+/* Галерея — сітка, а не горизонтальний скрол:
+   вкладений скролер перехоплював вертикальний жест на фото */
+.gal{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:9px 0 var(--gap-block); }
+.gal .frame{ margin:0; aspect-ratio:1; }
+.gal .frame:first-child:nth-last-child(odd){ grid-column:1 / -1; aspect-ratio:4/3; }
+.gal .zoom{ width:28px; height:28px; border-radius:10px; right:8px; bottom:8px; }
+.gal .zoom svg{ width:14px; height:14px; }
 
 /* ───────── Текстові блоки ───────── */
 .addr{

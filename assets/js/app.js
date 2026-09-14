@@ -17,7 +17,7 @@ const ZOOM = `<button class="zoom" aria-label="Збільшити фото" tabi
   </svg></button>`;
 const IMG   = (slug, alt, tape) =>
   `<figure class="frame">${tape ? '<span class="tape"></span>' : ''}
-     <img src="assets/img/${slug}.jpg" alt="${esc(alt)}" loading="lazy" decoding="async">
+     <img src="assets/img/${slug}.jpg" alt="${esc(alt)}" loading="lazy" decoding="async" draggable="false">
      ${ZOOM}
    </figure>`;
 
