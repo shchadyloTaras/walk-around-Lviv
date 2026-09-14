@@ -18,12 +18,6 @@ const CREDITS = [
   "u": "https://commons.wikimedia.org/wiki/File:46-101-1907_Lviv_Chuprinki_01_004.jpg"
  },
  {
-  "t": "1 Chuprynky Street, Lviv (03).jpg",
-  "a": "Aeou",
-  "l": "CC BY-SA 4.0",
-  "u": "https://commons.wikimedia.org/wiki/File:1_Chuprynky_Street,_Lviv_(03).jpg"
- },
- {
   "t": "Lviv, Chuprynky street 103 (3).JPG",
   "a": "Eleidan",
   "l": "CC BY-SA 3.0",
@@ -190,6 +184,24 @@ const CREDITS = [
   "a": "MSha",
   "l": "CC BY-SA 4.0",
   "u": "https://commons.wikimedia.org/wiki/File:Piskovi_Ozera_(Park)_(3).jpg"
+ },
+ {
+  "t": "46-101-0039 Lviv Bandery 11 RB.jpg",
+  "a": "Rbrechko",
+  "l": "CC BY-SA 4.0",
+  "u": "https://commons.wikimedia.org/wiki/File:46-101-0039_Lviv_Bandery_11_RB.jpg"
+ },
+ {
+  "t": "11 Bandery Street, Lviv (2).jpg",
+  "a": "Aeou",
+  "l": "CC BY-SA 3.0",
+  "u": "https://commons.wikimedia.org/wiki/File:11_Bandery_Street,_Lviv_(2).jpg"
+ },
+ {
+  "t": "01 Школа 1580.jpg",
+  "a": "Voky89",
+  "l": "CC BY-SA 4.0",
+  "u": "https://commons.wikimedia.org/wiki/File:01_%D0%A8%D0%BA%D0%BE%D0%BB%D0%B0_1580.jpg"
  },
  {
   "t": "Школа17Львов.jpg",
