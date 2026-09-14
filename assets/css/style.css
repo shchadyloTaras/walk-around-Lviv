@@ -72,7 +72,9 @@ body{
 }
 
 /* ───────── Падаюче листя ───────── */
-.leaves{ position:fixed; inset:0; z-index:3; pointer-events:none; overflow:hidden; }
+.leaves{ pointer-events:none; overflow:hidden; }
+.leaves-out{ position:fixed; inset:0; z-index:1; }   /* довкола телефона */
+.leaves-in { position:absolute; inset:0; z-index:0; } /* усередині, ПІД текстом */
 .leaf{
   position:absolute; top:-9vh; will-change:transform;
   animation:fall linear infinite;
@@ -167,6 +169,7 @@ body{
 
 /* ───────── Стрічка слайдів ───────── */
 .deck{
+  position:relative; z-index:1;            /* контент завжди над листям */
   flex:1; min-height:0; overflow-y:auto; overflow-x:hidden;
   scroll-snap-type:y proximity;
   scroll-behavior:smooth;

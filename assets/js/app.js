@@ -219,16 +219,20 @@ const LEAF_SHAPES = [
 const LEAF_COLORS = ['#E5812F', '#C6412A', '#D9A21B', '#B06A2C', '#E8A33F', '#8E9B44'];
 
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const box = $('#leaves'), rnd = (a, b) => a + Math.random() * (b - a);
-  for (let i = 0; i < 16; i++) {
-    const d = document.createElement('div');
-    d.className = 'leaf';
-    const size = rnd(15, 31);
-    d.style.cssText = `left:${rnd(-4, 100)}%;--drift:${rnd(-90, 110)}px;
-      animation-duration:${rnd(13, 26)}s;animation-delay:${-rnd(0, 26)}s;opacity:${rnd(.45, .85)}`;
-    d.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" style="animation-duration:${rnd(2.4, 5.5)}s">
-      <path d="${LEAF_SHAPES[i % LEAF_SHAPES.length]}" fill="${LEAF_COLORS[i % LEAF_COLORS.length]}"/></svg>`;
-    box.appendChild(d);
-  }
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const sow = (box, count) => {
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('div');
+      d.className = 'leaf';
+      const size = rnd(15, 31);
+      d.style.cssText = `left:${rnd(-4, 100)}%;--drift:${rnd(-90, 110)}px;
+        animation-duration:${rnd(13, 26)}s;animation-delay:${-rnd(0, 26)}s;opacity:${rnd(.4, .8)}`;
+      d.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 24 24" style="animation-duration:${rnd(2.4, 5.5)}s">
+        <path d="${LEAF_SHAPES[i % LEAF_SHAPES.length]}" fill="${LEAF_COLORS[i % LEAF_COLORS.length]}"/></svg>`;
+      box.appendChild(d);
+    }
+  };
+  sow($('#leavesIn'), 14);
+  sow($('#leavesOut'), 12);
 }
 })();
