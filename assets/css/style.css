@@ -311,14 +311,6 @@ h2.ch-title{
   letter-spacing:.13em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:1px;
 }
 
-/* ───────── Пам'ять ───────── */
-.slide.memorial{ background:linear-gradient(180deg,#F6EEE0,#EFE3D0); }
-.slide.memorial .title{ color:var(--ink); }
-.candle{ font-size:34px; margin:0 0 12px; filter:saturate(.85); }
-.slide.memorial p.body{ color:#5A4432; }
-.slide.memorial .note{ background:#FBF5EA; rotate:0deg; font-size:17px; color:#6B5340; }
-.slide.memorial .note::before{ background:#9A7A5C; }
-
 /* ───────── Інтро ───────── */
 .slide.intro{ text-align:left; padding-top:calc(var(--head-h) + 6px); padding-bottom:62px; }
 .intro-eyebrow{

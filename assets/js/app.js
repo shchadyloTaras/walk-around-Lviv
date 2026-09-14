@@ -9,7 +9,7 @@ const deck   = $('#deck'),  phone = $('#phone'), head = $('#head'), rail = $('#r
 const hKick  = $('#headKicker'), hTitle = $('#headTitle'), hCount = $('#headCount');
 const sheet  = $('#sheet'), scrim = $('#scrim'), sheetBody = $('#sheetBody');
 
-const STOPS = SLIDES.filter(s => s.type === 'stop' || s.type === 'memorial');
+const STOPS = SLIDES.filter(s => s.type === 'stop');
 const IMG   = (slug, alt, tape) =>
   `<figure class="frame">${tape ? '<span class="tape"></span>' : ''}
      <img src="assets/img/${slug}.jpg" alt="${esc(alt)}" loading="lazy" decoding="async">
@@ -60,15 +60,6 @@ function render(s, i) {
       <p class="ch-lead">${esc(s.lead)}</p>
       <ul class="tl">${s.timeline.map(([y, n]) => `<li><b>${esc(y)}</b>${esc(n)}</li>`).join('')}</ul>
       ${s.note ? `<div class="note"><span class="pin">🍂</span>${esc(s.note)}</div>` : ''}
-    </section>`;
-
-  if (s.type === 'memorial') return `
-    ${open('memorial')}
-      <p class="candle">🕯️</p>
-      <span class="addr">${esc(s.addr)}</span>
-      <h2 class="title">${esc(s.title)}</h2>
-      <p class="body">${esc(s.text)}</p>
-      ${s.note ? `<div class="note">${esc(s.note)}</div>` : ''}
     </section>`;
 
   if (s.type === 'outro') return `
@@ -183,7 +174,7 @@ sheetBody.innerHTML = CHAPTERS.map((c, ci) => {
     <div class="sh-gtitle" style="--accent:${TONE_HEX[c.tone]};--accent-ink:${TONE_HEX[c.tone]}">${esc(c.kicker)} ${esc(c.name)}</div>
     ${items.map(({ s, i }) => {
       const thumb = s.img ? `<img class="sh-thumb" src="assets/img/${s.img}.jpg" alt="" loading="lazy">`
-        : `<div class="sh-thumb ph">${s.type === 'chapter' ? CHAPTERS[s.ch].n : s.type === 'memorial' ? '🕯️' : '🍁'}</div>`;
+        : `<div class="sh-thumb ph">${s.type === 'chapter' ? CHAPTERS[s.ch].n : '🍁'}</div>`;
       const t = s.type === 'chapter' ? s.title : s.type === 'outro' ? 'Фінал прогулянки' : s.title;
       const sub = s.type === 'chapter' ? 'початок розділу' : s.addr || '';
       return `<button class="sh-item" data-i="${i}" style="--accent-wash:${TONE_HEX[c.tone]}22">
