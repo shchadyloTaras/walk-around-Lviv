@@ -31,16 +31,19 @@ const ADDR = (a, geo) => {
 };
 
 /* ─────────── Мапа маршруту (мальована) ─────────── */
+const TERM = (key, label) =>
+  `<button class="term" data-term="${key}" aria-label="Що таке ${esc(label)}?">${esc(label)}<span class="term-i" aria-hidden="true">?</span></button>`;
+
 const ROUTE_SVG = `
-<svg viewBox="0 0 340 154" role="img" aria-label="Схема маршруту: Чупринки, Мельника, Коновальця, Піскові озера">
-  <path d="M34 112 C 76 112, 76 46, 122 46 S 172 104, 214 92 S 272 52, 306 66"
+<svg viewBox="0 0 340 110" role="img" aria-label="Схема маршруту: Чупринки, Мельника, Коновальця, Піскові озера">
+  <path d="M34 80 C 76 80, 76 32, 122 32 S 172 74, 214 66 S 272 38, 306 48"
         fill="none" stroke="#C78A54" stroke-width="3" stroke-linecap="round"
         stroke-dasharray="1 9" opacity=".9"/>
   <g font-family="Unbounded, sans-serif" font-size="7.5" font-weight="700" fill="#6B4A31" text-anchor="middle">
-    <circle cx="34"  cy="112" r="6.5" fill="#E5812F"/><text x="36"  y="134">ЧУПРИНКИ</text>
-    <circle cx="122" cy="46"  r="6.5" fill="#C9931A"/><text x="122" y="28">МЕЛЬНИКА</text>
-    <circle cx="214" cy="92"  r="6.5" fill="#B5604B"/><text x="212" y="114">КОНОВАЛЬЦЯ</text>
-    <circle cx="306" cy="66"  r="8"   fill="#2F8AA6"/><text x="286" y="46">ПІСКОВІ ОЗЕРА</text>
+    <circle cx="34"  cy="80" r="6.5" fill="#E5812F"/><text x="36"  y="99">ЧУПРИНКИ</text>
+    <circle cx="122" cy="32" r="6.5" fill="#C9931A"/><text x="122" y="17">МЕЛЬНИКА</text>
+    <circle cx="214" cy="66" r="6.5" fill="#B5604B"/><text x="212" y="85">КОНОВАЛЬЦЯ</text>
+    <circle cx="306" cy="48" r="8"   fill="#2F8AA6"/><text x="286" y="31">ПІСКОВІ ОЗЕРА</text>
   </g>
 </svg>`;
 
@@ -51,10 +54,10 @@ function render(s, i) {
 
   if (s.type === 'intro') return `
     ${open('intro')}
-      <figure class="frame wide"><span class="tape"></span><img src="assets/img/sosnowski.jpg" alt="Палац Сосновського на вулиці Генерала Чупринки, 50/52" decoding="async"></figure>
+      <figure class="frame wide"><span class="tape"></span><img src="assets/img/sosnowski.jpg" alt="Палац Сосновського на вулиці Генерала Чупринки, 50/52" decoding="async" draggable="false">${ZOOM}</figure>
       <p class="intro-eyebrow">Львів · осіння прогулянка</p>
       <h1 class="big">Львів, який <em>шарудить</em> під ногами</h1>
-      <p class="intro-sub">Від сецесійних вілл Кастелівки — бруківкою, повз маскарони й меморіальні таблиці — до двох озер, які колись були гіпсовим кар’єром.</p>
+      <p class="intro-sub">Бруківкою повз ${TERM('secession', 'сецесійні')} вілли й маскарони — до двох озер, що колись були гіпсовим кар’єром.</p>
       <div class="route-map">${ROUTE_SVG}</div>
       <div class="chips">
         <span class="chip">≈ 3,5 км</span><span class="chip">4 вулиці</span>
@@ -64,7 +67,7 @@ function render(s, i) {
         Почати прогулянку
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v15m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <div class="hint">гортайте вгору<span>↓</span></div>
+      <div class="hint">гортайте далі<span>↓</span></div>
     </section>`;
 
   if (s.type === 'chapter') return `
@@ -220,6 +223,7 @@ deck.addEventListener('click', e => {
 });
 
 document.addEventListener('keydown', e => {
+  if (tOpened()) { if (e.key === 'Escape') { e.preventDefault(); tClose(); } return; }
   if (lbOpened()) {
     if (e.key === 'Escape') lbClose();
     if (e.key === 'ArrowRight') lbShow(lbAt + 1);
@@ -231,6 +235,26 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); step(1); }
   if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); step(-1); }
 });
+
+/* ─────────── Пояснення терміна ─────────── */
+const tbox = $('#tbox');
+const tOpen = key => {
+  const t = TERMS[key]; if (!t) return;
+  $('#tboxLead').textContent = t.lead;
+  $('#tboxWord').textContent = t.word;
+  $('#tboxText').textContent = t.text;
+  tbox.classList.add('on'); tbox.setAttribute('aria-hidden', 'false');
+  $('#tboxClose').focus();
+};
+const tClose = () => { tbox.classList.remove('on'); tbox.setAttribute('aria-hidden', 'true'); };
+const tOpened = () => tbox.classList.contains('on');
+
+deck.addEventListener('click', e => {
+  const b = e.target.closest('.term');
+  if (b) { e.stopPropagation(); tOpen(b.dataset.term); }
+});
+$('#tboxClose').addEventListener('click', tClose);
+tbox.addEventListener('click', e => { if (e.target === tbox) tClose(); });
 
 /* ─────────── Лайтбокс ─────────── */
 const lbox = $('#lbox'), lbImg = $('#lboxImg');

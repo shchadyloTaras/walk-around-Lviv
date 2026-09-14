@@ -225,7 +225,7 @@ body{
   background:linear-gradient(200deg, rgba(246,196,69,.20), rgba(230,129,47,.06) 45%, rgba(47,138,166,.10));
   mix-blend-mode:soft-light;
 }
-.frame.wide{ aspect-ratio:16/10; margin-bottom:var(--gap-block); }
+.frame.wide{ aspect-ratio:21/9; margin-bottom:var(--gap-block); }
 .frame.wide img{ object-position:50% 34%; }
 .frame{ cursor:zoom-in; }
 .frame .zoom{
@@ -240,6 +240,59 @@ body{
 .frame .zoom:hover{ background:rgba(58,35,20,.62); }
 .frame .zoom:active{ transform:scale(.9); }
 .frame .zoom svg{ width:17px; height:17px; }
+
+/* ───────── Слово-термін і його пояснення ───────── */
+.term{
+  font:inherit; color:var(--amber); background:linear-gradient(transparent 62%, #FBE0BC 62%);
+  border:0; padding:0 1px; margin:0; cursor:pointer;
+  border-bottom:1.6px dotted var(--amber);
+  transition:background .2s ease, color .2s ease;
+}
+.term:hover{ background:linear-gradient(transparent 0%, #F8D49F 0%); color:var(--accent-ink); }
+.term:active{ transform:translateY(1px); }
+.term-i{
+  display:inline-grid; place-items:center; vertical-align:.32em;
+  width:13px; height:13px; margin-left:3px; border-radius:50%;
+  background:var(--amber); color:#FFF6E6;
+  font-family:var(--font-display); font-weight:700; font-size:8.5px; line-height:1;
+  animation:nudge 3.4s ease-in-out infinite;
+}
+@keyframes nudge{
+  0%,88%,100%{ transform:scale(1); }
+  92%{ transform:scale(1.28); }
+  96%{ transform:scale(1); }
+}
+
+.tbox{
+  position:absolute; inset:0; z-index:58;
+  display:grid; place-items:center; padding:24px;
+  background:rgba(36,21,11,.6);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  opacity:0; visibility:hidden; transition:opacity .24s ease, visibility .24s;
+}
+.tbox.on{ opacity:1; visibility:visible; }
+.tbox-card{
+  background:linear-gradient(180deg,#FFFBF0,#FDF0D9);
+  border-radius:22px; padding:22px 22px 18px; max-width:340px;
+  box-shadow:0 26px 54px -22px rgba(36,21,11,.7);
+  transform:scale(.94) translateY(8px); transition:transform .3s cubic-bezier(.2,.8,.3,1);
+}
+.tbox.on .tbox-card{ transform:none; }
+.tbox-lead{
+  font-family:var(--font-display); font-weight:700; font-size:9px;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); margin:0 0 5px;
+}
+.tbox-word{
+  font-family:var(--font-display); font-weight:800; font-size:25px; letter-spacing:-.03em;
+  color:var(--amber); margin:0 0 10px;
+}
+.tbox-text{ font-size:14.5px; line-height:1.62; color:var(--ink-2); margin:0 0 18px; }
+.tbox-ok{
+  width:100%; border:0; cursor:pointer; border-radius:99px; padding:12px;
+  font-family:var(--font-display); font-weight:700; font-size:12px;
+  color:#FFF8EA; background:linear-gradient(140deg,var(--amber),#D2641C);
+}
+.tbox-ok:active{ transform:scale(.97); }
 
 /* ───────── Лайтбокс ───────── */
 .lbox{
@@ -388,32 +441,32 @@ h2.ch-title{
 }
 
 /* ───────── Інтро ───────── */
-.slide.intro{ text-align:left; padding-top:calc(var(--head-h) + 6px); padding-bottom:62px; }
+.slide.intro{ text-align:left; padding-top:calc(var(--head-h) + 6px); --gap-block:12px; padding-bottom:24px; }
 .intro-eyebrow{
   font-family:var(--font-display); font-weight:700; font-size:9.5px;
   letter-spacing:.3em; text-transform:uppercase; color:var(--amber); margin:0 0 var(--gap-tight);
 }
 h1.big{
   font-family:var(--font-display); font-weight:800;
-  font-size:clamp(31px,9.6vw,45px); line-height:1.0; letter-spacing:-.042em;
+  font-size:clamp(27px,8.2vw,38px); line-height:1.02; letter-spacing:-.04em;
   margin:0 0 var(--gap-tight); color:var(--ink);
   text-wrap:balance;
 }
 h1.big em{ font-style:normal; color:var(--amber); }
 .intro-sub{
-  font-size:15.5px; line-height:1.55; color:var(--ink-2); margin:0 0 var(--gap-block); max-width:32ch;
+  font-size:14.5px; line-height:1.5; color:var(--ink-2); margin:0 0 var(--gap-block); max-width:34ch;
 }
 .route-map{ margin:0 0 var(--gap-block); }
 .route-map svg{ width:100%; height:auto; display:block; }
-.chips{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0 0 var(--gap-block); }
+.chips{ display:flex; flex-wrap:nowrap; gap:5px; margin:0 0 var(--gap-block); }
 .chip{
-  font-family:var(--font-display); font-weight:700; font-size:9.5px;
-  letter-spacing:.1em; text-transform:uppercase; text-align:center;
-  padding:var(--pill-pad); border-radius:99px; background:#FFFBF0; color:var(--ink-2);
+  font-family:var(--font-display); font-weight:700; font-size:8.6px;
+  letter-spacing:.04em; text-transform:uppercase; text-align:center; white-space:nowrap;
+  padding:7px 9px; border-radius:99px; background:#FFFBF0; color:var(--ink-2);
   box-shadow:0 1px 2px rgba(94,55,20,.1);
 }
 .start{
-  display:inline-flex; align-items:center; gap:10px; align-self:flex-start;
+  display:inline-flex; align-items:center; gap:10px; align-self:center;
   border:0; cursor:pointer;
   font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:.01em;
   color:#FFF8EA; background:linear-gradient(140deg,var(--amber),#D2641C);
@@ -461,9 +514,9 @@ h1.big em{ font-style:normal; color:var(--amber); }
 
 /* ───────── Підказка «гортай» ───────── */
 .hint{
-  position:absolute; bottom:16px; left:50%; translate:-50% 0; z-index:5;
-  display:flex; flex-direction:column; align-items:center; gap:3px;
-  font-family:var(--font-hand); font-size:15px; color:var(--ink-3);
+  align-self:center; margin-top:26px;
+  display:flex; flex-direction:column; align-items:center; gap:1px;
+  font-family:var(--font-hand); font-size:17px; color:var(--ink-2);
   animation:bob 2.1s ease-in-out infinite;
   pointer-events:none;
 }
